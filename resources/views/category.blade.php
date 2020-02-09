@@ -4,4 +4,5 @@ category
 @endsection
 @section('content')
 <h1>hello form category</h1>
+
 @endsection

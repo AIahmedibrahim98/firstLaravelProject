@@ -24,8 +24,8 @@ Route::get('/multi/{x}/{y}',"clcController@multi");
 Route::get('/show/{x}/{y}',"MyController@show");
 Route::get('/category', "MyController@category");
 Route::get('/brands', "MyController@Brands");
-Route::get('/Product', "MyController@Product");
-Route::get('/Product/data', "DBcontroller@index");
+// Route::get('/Product', "MyController@Product");
+// Route::get('/Product/data', "DBcontroller@index");
 Route::get('/category', "MyController@category");
 Route::get("/data/show" ,function (){
 
@@ -48,3 +48,6 @@ Route::get('/download', function () {
 Route::get('/file', function () {
 return response()->file("data.txt");
 });
+// new Route
+Route::get('/Product', "productController@showAll")->name("products");
+Route::post('/Product/store', "productController@store");
