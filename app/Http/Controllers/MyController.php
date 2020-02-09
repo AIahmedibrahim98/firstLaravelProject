@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MyController extends Controller
 {
@@ -30,10 +31,13 @@ class MyController extends Controller
 
     }
     function Product(){
-        return view("Product");
+        $result = DB::select('select * from jobs');
+        // dd($result);
+        return view("Product",["result"=>$result]);
     }
     function Brands(){
         $brands = ["Samsung"," Apple","Huawei","Oppo","Vivo"," Xiaomi","LG","Lenovo","ZTE","Alcatel-Lucent"];
         return view("Brands",["barnds"=>$brands]);
     }
+
 }
