@@ -26,7 +26,8 @@ Route::get('/category', "MyController@category");
 Route::get('/brands', "MyController@Brands");
 // Route::get('/Product', "MyController@Product");
 // Route::get('/Product/data', "DBcontroller@index");
-Route::get('/category', "MyController@category");
+Route::get('/category', "categoryController@showAll");
+Route::post('/category/store',"categoryController@store");
 Route::get("/data/show" ,function (){
 
     $data = ["name"=>"ahmed" , "salary" =>5800, "job" =>"sales" ,
