@@ -11,6 +11,7 @@
 |
 */
 
+use Illuminate\Http\Request;
 use Ramsey\Uuid\FeatureSet;
 
 Route::get('/', function () {
@@ -52,3 +53,27 @@ return response()->file("data.txt");
 // new Route
 Route::get('/Product', "productController@showAll")->name("products");
 Route::post('/Product/store', "productController@store");
+Route::get("/md/{age}", "middlewareController@test")
+// ->middleware("test")
+;
+
+Route::group(['prefix' => 'mdg',"middleware"=>'test'], function () {
+Route::get("age/{ages}", function (Request $request) {
+echo "your age issss" . $request->ages;
+});
+Route::get("num/{num}", function (Request $request) {
+    echo "your num is" . $request->num;
+    });
+});
+Route::get('/lang', function () {
+    
+    return view("lang");
+});
+Route::get('change/lang/{locale}', function ($locale) {
+    if($locale == "en"){
+        session()->put("lang","en");
+    }elseif($locale == "ar"){
+        session()->put("lang","ar");
+    }
+    return redirect()->back();
+});
