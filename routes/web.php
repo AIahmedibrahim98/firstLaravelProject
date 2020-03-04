@@ -77,3 +77,6 @@ Route::get('change/lang/{locale}', function ($locale) {
     }
     return redirect()->back();
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
