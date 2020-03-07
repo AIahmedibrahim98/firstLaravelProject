@@ -66,7 +66,7 @@ Route::get("num/{num}", function (Request $request) {
     });
 });
 Route::get('/lang', function () {
-    
+
     return view("lang");
 });
 Route::get('change/lang/{locale}', function ($locale) {
@@ -77,6 +77,11 @@ Route::get('change/lang/{locale}', function ($locale) {
     }
     return redirect()->back();
 });
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get("/contactus","ContactUsController@index");
+Route::post("/contactus","ContactUsController@send");
